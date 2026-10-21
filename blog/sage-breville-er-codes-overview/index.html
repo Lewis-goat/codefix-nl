@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sage/Breville ER-codes: de verborgen servicetabel lezen</title>
+<meta name="description" content="Sage/Breville-machines tonen ER-codes uit een nooit gepubliceerde servicetabel. Zo zijn ER01-ER18 opgebouwd en waarom de Oracle anders nummert.">
+<link rel="canonical" href="https://nl.codefixcoffee.com/blog/sage-breville-er-codes-overview/">
+<link rel="alternate" hreflang="en" href="https://blog.codefixcoffee.com/post/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="fr" href="https://fr.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="de" href="https://de.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="es" href="https://es.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="it" href="https://it.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="pl" href="https://pl.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="nl" href="https://nl.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="pt" href="https://pt.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="hu" href="https://hu.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="cs" href="https://cs.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="ro" href="https://ro.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="sv" href="https://sv.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+  <link rel="alternate" hreflang="tr" href="https://tr.codefixcoffee.com/blog/sage-breville-er-codes-overview/" />
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" type="application/rss+xml" title="CodeFix Blog" href="/blog/rss.xml">
+</head>
+<body>
+<header class="site"><div class="in"><a class="brand" href="/blog/">☕ CodeFix Blog</a><span><a href="/">Terug naar de site</a></span></div></header>
+<main>
+<h1>Sage/Breville ER-codes: de verborgen servicetabel lezen</h1>
+<p class="meta">2026-10-21</p>
+<p>Stopt een Breville-espressomachine en verschijnt ER05 op het paneel, dan vindt u in de handleiding geen betekenis terug. Dat is geen omissie: de foutcodes komen uit interne servicetabellen die het bedrijf voor reparaties hanteert en voor eigenaren achterhoudt. In Europa — dus ook in Nederland — loopt dezelfde hardware onder de naam <strong>Sage</strong> over de toonbank: identieke machines, alleen het logo op de badge verschilt, en een ER-code op een Sage Barista Touch betekent exact wat hij op een Breville betekent. Ons <a href="https://nl.codefixcoffee.com/breville/">Breville/Sage-overzicht</a> volgt het huidige gamma; dit bericht verklaart hoe de nummering is georganiseerd, zodat ook een code die u nog nooit zag iets zinnigs vertelt.</p>
+<h2>Waarom Breville de codes niet publiceert</h2>
+<p>De gebruikershandleiding behandelt reinigen en ontkalken, geen diagnostiek. De volledige codetabellen schuilen in de servicemodus van elke machine: met een wachtwoord afgeschermde schermen voor technici, met opgeslagen fouttellers en live sensoruitlezingen. Juist omdat de codes reparatie-instrumentarium zijn en geen consumentenfunctie, bestaat er geen openbaar document — de meeste eigenaren zien dan ook alleen de ene code die een stilligging veroorzaakte. Het contrast met Miele is schril: daar staan de F-codebetekenissen gewoon in de gebruiksaanwijzing, en daarom kunnen de <a href="https://nl.codefixcoffee.com/miele/">Miele-codepagina's</a> de handleiding letterlijk citeren.</p>
+<h2>De Barista Touch-tabel: ER01 tot en met ER18</h2>
+<p>De Barista Touch (BES880) en de Barista Touch Impress (BES881) delen een besturingsplaatfamilie én codetabel, met achttien entries. Eenmaal doorzien leest de tabel zich vanzelf: de sensorcodes komen in <strong>groepen van vier</strong>, per sensor één groep, doorlopend open circuit bij het opstarten, open circuit tijdens bedrijf, kortsluiting bij het opstarten en kortsluiting tijdens bedrijf.</p>
+<ul>
+<li><strong>ER01 tot ER04</strong> — de temperatuursensor van het ThermoJet-thermoblok in zijn vier open- en kortvarianten. <a href="https://nl.codefixcoffee.com/breville/barista-touch-bes880/er01/">ER01</a> is de entry voor open circuit bij het opstarten.</li>
+<li><strong>ER05 tot ER08</strong> — de temperatuursensor van de melkkan, de kleine probe in het gebied van de drupbak die de kan uitleest terwijl de stoompijp de melk textuurt. ER05, open circuit bij opstarten, is de vaakst gemelde Barista Touch-code, en alle vier de entries delen één oplossing.</li>
+<li><strong>ER09 tot ER12</strong> — de temperatuursensor in de zetwaterlijn (inline), volgens hetzelfde viervoudige patroon.</li>
+<li><strong>ER13 en ER14</strong> — telproblemen van de flowmeter, bij het opstarten en tijdens bedrijf: de pomp draaide, maar de machine kon het passerende water niet tellen.</li>
+<li><strong>ER15</strong> — een communicatiestoring tussen interne elektronische modules; regelmatig een losgeschoten flatcable of vochtige connector in plaats van een dood bord.</li>
+<li><strong>ER16 en ER17</strong> — de maalmolen: eerst oververhitte de motor en schakelde zichzelf beveiligend uit, daarna tijdde de motor uit zonder de klus af te maken.</li>
+<li><strong>ER18</strong> — de E-fast-beveiliging, een elektrische of veiligheidsstoring zoals lekstroom; dit is tevens de code die de aardlekschakelaar in uw meterkast kan laten uitslaan.</li>
+</ul>
+<h2>De Oracle-familie hanteert een langere tabel</h2>
+<p>Kiest u een Oracle, dan krijgt hetzelfde idee meer entries mee. De Oracle (BES980) en de Oracle Touch (BES990) delen een lijst van 32, waarbij de BES980 ze als "Error 1" tot "Error 32" toont en de BES990 het voorvoegsel ER gebruikt. De eerste zestien volgen het kwartetprincipe over vier sensors: stoomboilercodes 1 tot 4, koffieboilercodes 5 tot 8 — met <a href="https://nl.codefixcoffee.com/breville/oracle-bes980/error-8/">Error 8</a> als de kortsluiting van de koffieboilersensor tijdens bedrijf — de verwarmde zetgroep op 9 tot 12, en de stoompijp op 13 tot 16. De rest betreft boilers die niet op temperatuur komen (17 tot 19), niveau- en vulstoringen van de stoomboiler (20 en 21), flowmeterproblemen (22 en 23), niveauprobes en oververhitting (24 tot 27), een communicatiestoring op het bord bij 28, de maalmolen bij 29 en 30, de tampermotor bij 31 en een lekkende dan wel niet bijvullende stoomboiler bij 32.</p>
+<p>Twee kleinere tabellen ronden de familie af. De Oracle Jet (BES985) gebruikt een eigen, kortere tabel van E1 tot E19, en de Dual Boiler (BES920) houdt tweecijferige codes 00 tot 12 verborgen in een zelftestmenu in plaats van op het gewone display — een Dual Boiler kan dus op een storing staan die u op het scherm nooit zag.</p>
+<h2>Het verborgen foutenlogboek zelf uitlezen</h2>
+<p>Omdat het servicedata is, leest u de geschiedenis van uw machine via dezelfde serviceschermen. De routes zijn technisch gekleurd maar goed gedocumenteerd onder reparateurs:</p>
+<ul>
+<li><strong>Barista Touch en Oracle Touch</strong> — schakel aan de muur uit, houd de Power-knop vooraan ingedrukt terwijl u de muurschakelaar terugzet, laat los bij het logo, toets het servicewachtwoord 00000 en open vervolgens Error Counter voor opgeslagen fouten of Live Debug voor actuele temperaturen en waterniveaus.</li>
+<li><strong>Barista Touch Impress</strong> — zelfde knoppenserie, maar het wachtwoord luidt 02015.</li>
+<li><strong>Oracle BES980</strong> — houd met de machine ingestoken maar uitgeschakeld 1 CUP, 2 CUP en POWER minstens een seconde tegelijk in; na de lange piep opent de SELECT-dial Error Storage, waarmee u door errors 1 tot 32 met hun opgeslagen aantallen bladert.</li>
+</ul>
+<p>Beschouw deze schermen als alleen-lezen: noteer wat er staat, laat instellingen onaangeroerd en wis het logboek pas ná een reparatie, zodat een terugkeerende code zichtbaar blijft.</p>
+<h3>Sage in Nederland: aankoop, garantie en support</h3>
+<p>In Nederland wordt dit merk officieel als Sage verkocht, met eigen handleidingen en support via <a href="https://www.sageappliances.co.uk">de officiële site van Sage Appliances</a>. Wie binnen Europa koopt, heeft daarnaast twee jaar wettelijke garantie op gebreken die er bij aflevering al waren — bewaar de aankoopbon dus zorgvuldig. Bij een ER-code binnen die termijn zijn de verkoper en de Sage-support uw eerste aanspreekpunt, niet uw eigen schroevendraaier.</p>
+<h2>Wat de reparaties doorgaans kosten</h2>
+<p>Zelfs tegenover een ongepubliceerde tabel blijft de rekenkunde voorspelbaar. Temperatuursensorassemblages lopen van circa €25 tot €95, afhankelijk van de sensor in kwestie (stoompijp- en melksensoren zijn de prijzige), o-ringsets kosten €10 tot €20 en een reparatiekit voor de melksensor zo'n €30 tot €50 tegenover €80 tot €95 voor de originele assemblage. Fabrieksquotes buiten de garantie voor interne storingen liggen vaak tussen €300 en €500, dus een sensorreparatie via een onafhankelijke reparateur is doorgaans de betere route. De Britse Sage-dekking van dezelfde tabellen staat op de <a href="https://nl.codefixcoffee.com/uk/">UK-editie van de site</a>.</p>
+</main>
+<footer>Reparatiehandleidingen en foutcode-uitleg van codefixcoffee.com.</footer>
+</body></html>
