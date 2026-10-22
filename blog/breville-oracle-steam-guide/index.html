@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breville/Sage Oracle stoom en ER-codes: wat u eerst controleert</title>
+<meta name="description" content="Stoomstoringen op de Oracle: wat de stoomzijde-codes betekenen, welke purge u eerst draait en wanneer kalk de echte oorzaak is.">
+<link rel="canonical" href="https://nl.codefixcoffee.com/blog/breville-oracle-steam-guide/">
+<link rel="alternate" hreflang="en" href="https://blog.codefixcoffee.com/post/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="fr" href="https://fr.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="de" href="https://de.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="es" href="https://es.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="it" href="https://it.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="pl" href="https://pl.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="nl" href="https://nl.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="pt" href="https://pt.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="hu" href="https://hu.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="cs" href="https://cs.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="ro" href="https://ro.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="sv" href="https://sv.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="tr" href="https://tr.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" type="application/rss+xml" title="CodeFix Blog" href="/blog/rss.xml">
+<meta name="google-adsense-account" content="ca-pub-9660119725457689"><script>(function(){var u="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660119725457689";var d=false;function l(){if(d)return;d=true;var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";s.src=u;document.head.appendChild(s)}["scroll","pointerdown","keydown","touchstart"].forEach(function(e){addEventListener(e,l,{once:true,passive:true})});addEventListener("load",function(){setTimeout(l,3500)})})();</script></head>
+<body>
+<header class="site"><div class="in"><a class="brand" href="/blog/">☕ CodeFix Blog</a><span><a href="/">Terug naar de site</a></span></div></header>
+<main>
+<h1>Breville/Sage Oracle stoom en ER-codes: wat u eerst controleert</h1>
+<p class="meta">2026-10-22</p>
+<p>De stoomzijde van een Breville Oracle is het drukste plekje van de machine: een roestvrijstalen stoomboiler, een stoompijp die melk automatisch textuurt, niveauprobes en een vulpomp, alles dagelijks op temperatuur. Logisch dat daar ook een flink deel van de foutcodes vandaan komt. De Oracle-familie hanteert een servicetabel van 32 entries die Breville niet publiceert, en in Europa — Nederland incluis — draagt hetzelfde toestel het <strong>Sage</strong>-logo met identieke codes. Voordat u op een kapot onderdeel gokt: neem eerst de goedkope controles door, want de meeste stoomstilstanden worden veroorzaakt door een verstopte stoomtip, een nagelaten purge of kalk op een probe. Het dagelijkse onderhoud van de stoompijp beschrijft de fabrikant zelf in <a href="https://www.sageappliances.co.uk">de supportsectie van Sage Appliances</a>.</p>
+<h2>Waar de stoomcodes in de Oracletabel zitten</h2>
+<p>De Oracle (BES980) en de Oracle Touch (BES990) delen één tabel; de BES980 toont de entries als "Error 1" tot "Error 32", de BES990 geeft ze een ER-voorvoegsel. De stoomgerelateerde entries clusteren op vijf plekken:</p>
+<ul>
+<li><strong>Error 1 tot 4</strong> — de temperatuursensor van de stoomboiler, in de cyclus open circuit bij opstarten, signaal weg tijdens bedrijf, en kortsluiting in beide situaties. Eén sensor, vier manieren van melden.</li>
+<li><strong>Error 13 tot 16</strong> — hetzelfde kwartet voor de temperatuursensor van de stoompijp zelf: de probe die het automatisch textureren stopt zodra de melk de juiste temperatuur bereikt. Die zit op de natste plek van de machine.</li>
+<li><strong>Error 18</strong> — de stoomboiler komt niet normaal op temperatuur.</li>
+<li><strong>Error 20 en 21</strong> — waterniveau- of vulpompproblemen van de stoomboiler, en een niveauprobe die iets anders rapporteert dan het bord verwacht.</li>
+<li><strong>Error 26</strong> — de stoomboiler liep boven de doeltemperatuur door; <strong>Error 32</strong> is een stoomboilerlek of een mislukte navulling.</li>
+</ul>
+<p>Niet alles vlak bij de stoompijp is stoomzijde: codes 5 tot 8 horen bij de sensor van de koffieboiler, met <a href="https://nl.codefixcoffee.com/breville/oracle-bes980/error-8/">Error 8</a> als de kortsluiting-tijdens-bedrijf-entry. Het opgeslagen logboek helpt de families uit elkaar te halen — op de BES980 opent u Error Storage door met de machine uit 1 CUP, 2 CUP en POWER samen in te drukken, waarna u door alle 32 codes met hun tellingen bladert.</p>
+<h2>Wat u eerst doet: de purge-routine</h2>
+<p>Zwakke of spetterende stoom, of een code vlak na een melkdrank, wijst eerder naar de stoomtip dan naar de boiler:</p>
+<ol>
+<li>Trek de stekker eruit en laat de stoompijp afkoelen.</li>
+<li>Schroef de tip los en laat hem weken in heet water met een scheut ontkalker; prik elk gaatje vrij met de pin op het reinigingsgereedschap.</li>
+<li>Draai de purge: zo'n tien seconden stoom in de drupbak met de tip eraf, daarna nogmaals met de tip erop.</li>
+<li>Purge de pijp vanaf nu na elke melksessie; opgedroogde melk in de tip is de aanstichter van de meeste van deze stilstanden.</li>
+</ol>
+<p>Meet de machine de stoomdruk, zoals de Oracle Jet met zijn E16-code, dan kan een dichtgeslibde tip een code laten aanslaan nog voordat u merkt dat de stoomkracht afneemt.</p>
+<h3>Waterhardheid meenemen</h3>
+<p>De hardheid van Nederlands leidingwater verschilt flink per regio: vrij zacht in de duingebieden, aanzienlijk harder in Zuid-Limburg en delen van Brabant. Stel de waterhardheidsinstelling van uw Oracle in op de lokale waarde — uw waterbedrijf publiceert die per woongebied — zodat de ontkalkherinnering realistisch blijft. In een hardwatergebied met zelden een ontkalkbeurt legt u zelf de basis voor Error 20, 21 of 32.</p>
+<h2>Hardheid, kalk en de niveauprobes</h2>
+<p>Waar het water hard is, schrijft kalk zijn eigen foutcodes. De niveauprobes van de stoomboiler staan permanent in heet water, en een kalklaag isoleert ze, zodat het bord "geen water" concludeert terwijl de boiler vol zit — de klassieke route naar Error 20 of 21 en naar de navulfout van Error 32. Kalk hoopt ook op in het stoompad en op de inlaat van de vulpomp. Een volledige ontkalking, inclusief de stoomboilercyclus, is de goedkoopste diagnostiek die u kunt draaien en ruimt opvallend veel van deze codes in één keer op.</p>
+<p>Het naaste familielid maakt hetzelfde punt: de Dual Boiler verbergt zijn codes 00 tot 12 in een zelftestmenu, en <a href="https://nl.codefixcoffee.com/breville/dual-boiler-bes920/00/">code 00</a> — stoomboilersensor niet gedetecteerd — staat bovenaan een tabel waarvan de niveau- en vul-entries onder hard water precies hetzelfde gedrag vertonen.</p>
+<h2>Wanneer ontkalken volstaat en wanneer niet</h2>
+<p>Eerst ontkalken, dan pas demonteren — maar ken de grens:</p>
+<ul>
+<li><strong>Ontkalk eerst</strong> bij vul-, niveau- en navulcodes (20, 21, 32), bij zwakke stoom zonder code en bij elke machine waarvan de laatste beurt meer dan drie maanden geleden was. Kosten: één fles ontkalker.</li>
+<li><strong>Ontkalken lost het niet op</strong> wanneer een sensorcode op een vers ontkalkte, warme machine direct terugkeert — of het nu een stoomboiler-entry uit 1 tot 4 betreft of <a href="https://nl.codefixcoffee.com/breville/oracle-bes980/error-8/">Error 8</a> aan de koffiezijde. Een code die een ontkalking overleeft, wijst naar de sensor, de kabel of een connector.</li>
+<li><strong>Stop en controleer de afdichtingen</strong> als Error 26 terugkeert: een lekkende o-ring rond de stoomprobe laat stoom de sensorkabel opwarmen en bootst een ontsporende boiler na. Nieuwe probe-o-rings zijn spotgoedkoop; een triac-bord dat de verwarming niet meer kan uitschakelen is dat niet.</li>
+<li><strong>Error 18</strong> op een machine die helemaal geen stoom meer maakt is doorgaans verwarmingszijde — thermische zekering, element of bord — en geen kalk, dus behandel hem als reparatie in plaats van schoonmaakklus.</li>
+</ul>
+<h2>Wat de onderdelen kosten</h2>
+<p>Originele temperatuursensorassemblages lopen van circa €25 tot €95 afhankelijk van de sensor; complete stoompijpassemblages, sensor inbegrepen, kosten rond €60 tot €95; een probe- met o-ringset zo'n €85 en een vulpomp €30 tot €60. Fabrieksquotes buiten de garantie zitten doorgaans tussen €300 en €500 voor interne storingen, waardoor de volgorde "eerst een fles ontkalker, daarna eventueel een sensorreparatie" vrijwel altijd de betere rekenkunst is. De Sage-variant van deze tabellen vindt u op de <a href="https://nl.codefixcoffee.com/uk/">UK-editie van de site</a>.</p>
+</main>
+<footer>Reparatiehandleidingen en foutcode-uitleg van codefixcoffee.com.</footer>
+</body></html>
