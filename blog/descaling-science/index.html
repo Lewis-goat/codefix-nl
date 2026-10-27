@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ontkalken, eens goed uitgelegd</title>
+<meta name="description" content="Wat kalk aanricht in thermoblokken en kleppen, waarom azijn verkeerd is voor sommige machines, citroenzuur versus melkzuur en hoe vaak ontkalken.">
+<link rel="canonical" href="https://nl.codefixcoffee.com/blog/descaling-science/">
+<link rel="alternate" hreflang="en" href="https://blog.codefixcoffee.com/post/descaling-science/" />
+  <link rel="alternate" hreflang="fr" href="https://fr.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="de" href="https://de.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="es" href="https://es.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="it" href="https://it.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="pl" href="https://pl.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="nl" href="https://nl.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="pt" href="https://pt.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="hu" href="https://hu.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="cs" href="https://cs.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="ro" href="https://ro.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="sv" href="https://sv.codefixcoffee.com/blog/descaling-science/" />
+  <link rel="alternate" hreflang="tr" href="https://tr.codefixcoffee.com/blog/descaling-science/" />
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" type="application/rss+xml" title="CodeFix Blog" href="/blog/rss.xml">
+<meta name="google-adsense-account" content="ca-pub-9660119725457689"><script>(function(){var u="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660119725457689";var d=false;function l(){if(d)return;d=true;var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";s.src=u;document.head.appendChild(s)}["scroll","pointerdown","keydown","touchstart"].forEach(function(e){addEventListener(e,l,{once:true,passive:true})});addEventListener("load",function(){setTimeout(l,3500)})})();</script></head>
+<body>
+<header class="site"><div class="in"><a class="brand" href="/blog/">☕ CodeFix Blog</a><span><a href="/">Terug naar de site</a></span></div></header>
+<main>
+<h1>Ontkalken, eens goed uitgelegd</h1>
+<p class="meta">2026-10-27</p>
+<p>Op elke lijst van koffiemachinestoringen staat één hoofdoorzaak bovenaan: kalk. Hard water bevat opgelost calcium en magnesium; zodra dat water wordt verwarmd slaan de carbonaten neer en zetten zich af op het heetste metaal in de machine. Meer is kalk niet — en achter een onevenredig groot deel van de codes op deze site zit precies dat: verwarmingsfouten, klepfouten, primingproblemen en vastzittende ontkalklampjes. Het is bovendien de enige foutenfamilie met een oplossing van €10.</p>
+<h2>Wat kalk doet met een thermoblok</h2>
+<p>Een thermoblok is een blok metaal met een smal kanaal waarin water onderweg naar het kopje wordt verwarmd. Kalk zet zich af op de kanaalwanden, en calciumcarbonaat is een behoorlijke warmte-isolator — en dat is nu juist het probleem.</p>
+<ul>
+<li><strong>Het verwarmingselement wordt trager.</strong> Het element moet langer draaien om op temperatuur te komen, en zware kalkaanslag vertraagt dat zó dat op sommige machines de eigen temperatuurcontroles van de plaat overslaan — Jura zelf koppelt zijn thermoblokfouten expliciet aan kalk, zie <a href="https://www.jura.com">het onderhoudsadvies van Jura</a>.</li>
+<li><strong>De sensor liegt.</strong> Een kalklaag verandert hoe snel de NTC-sensor in het blok warmte waarneemt, waardoor de plaat kan denken dat de machine oververhit raakt of juist niet opwarmt, terwijl geen van beide waar is.</li>
+<li><strong>Het blok wordt te heet.</strong> Geïsoleerd metaal loopt boven zijn ontwerptemperatuur, wat de thermozekeringen belast die het blok moeten beschermen. Een dichtgekalkt thermoblok is een vervangcase en geen schoonmaakcase — €90 tot €180 bij een Jura, voor kalk die een fles ontkalker had opgelost.</li>
+</ul>
+<h2>Wat kalk doet met kleppen en kleine openingen</h2>
+<p>Het tweede slagveld is alles wat smal is. Op Jura-machines met de motorgestuurde keramische klep maakt kalk de schijf stroef tot hij de door de plaat bevolen positie niet meer bereikt — letterlijk wat <a href="https://nl.codefixcoffee.com/jura/automatic-machines/error-6/">Error 6</a> meldt, en waarom een volledige ontkalkbeurt de eerste, gratis stap van de oplossing is. Smalle inlaten verstoppen op dezelfde manier: <a href="https://nl.codefixcoffee.com/philips-saeco/espresso-machines/error-05/">Philips Error 05</a> kan na het primen blijven staan omdat een dichtgekalkte inlaat de pomp simpelweg geen water laat aanzuigen. Ook niveausensoren zijn een prooi — kalk op een vlot in de tank is een klassieke oorzaak van een vals "watertank bijvullen"-bericht terwijl de tank vol is. En een verkalkte doorstroomsensor stopt met tellen, één van de manieren waarop <a href="https://nl.codefixcoffee.com/delonghi/magnifica-dinamica/descale-light-stays-on-after-descaling/">het ontkalklampje van een De'Longhi blijft branden na ontkalken</a>: de machine heeft de beurt die u draaide nooit geregistreerd.</p>
+<h2>Waarom azijn voor sommige machines verkeerd is</h2>
+<p>Huishoudazijn is azijnzuur, en voor espressomachines heeft dat drie bezwaren. Het is zwak, dus het heeft lang contact nodig om vaste kalk in een compact kanaal zacht te maken. Het tast verchroomde messing fittingen aan en laat sommige rubberen afdichtingen uitzetten. En de geur overleeft vele spoelbeurten in kunststofslangen. Nespresso is er expliciet over: ontkalk nooit met azijn, want het beschadigt de circuits van de machine — de onderhoudsinstructies op <a href="https://www.nespresso.com">de site van Nespresso</a> lichten dat toe. Onthoud dat wanneer een <a href="https://nl.codefixcoffee.com/nespresso/vertuo-machines/blinking-lights/">knipperpatroon in oranje van een Vertuo</a> u naar de ontkalkroutine stuurt. Een waterkoker? Azijn mag. Een machine met pomp, klep en garantie? Gebruik een echte ontkalker.</p>
+<h2>Citroenzuur versus melkzuur</h2>
+<p>Bijna elke commerciële ontkalker is één van twee voedselveilige zuren:</p>
+<ul>
+<li><strong>Citroenzuur</strong> — als poeder te koop, €3 tot €6 voor een voorraad waar de meeste huishoudens een jaar mee vooruit kunnen, sterk en snel bij zware aanslag. Het vormt de basis van de meeste universele ontkalkers en laat, goed nagespoeld, niets achter.</li>
+<li><strong>Melkzuur</strong> — milder en vrijwel geurloos, veelgebruikt in de flesjes waarmee machines worden geleverd. Zachter voor afdichtingen en coatings, tegen de prijs van een iets langere inwerktijd voor dezelfde kalk.</li>
+</ul>
+<p>Beide werken, mits u ze door het eigen ontkalkprogramma van de machine haalt. Wat telt is afronden: herinneringstellers registreren alleen een volledige cyclus vanuit het ontkalkmenu, met tuitje erop en spoelfase inbegrepen. Stopt u te vroeg of freewheelt u met een kan, dan <a href="https://nl.codefixcoffee.com/delonghi/magnifica-dinamica/descale-light-stays-on-after-descaling/">blijft het lampje branden</a>.</p>
+<h2>Hoe vaak: dat hangt af van uw water</h2>
+<p>Machineherinneringen tellen volume — gezette kopjes, gepompte liters — en geen hardheid, dus huishoudens met hard water moeten ontkalken vóórdat het lampje ooit brandt. Een praktische richtlijn:</p>
+<ul>
+<li><strong>Zacht water</strong> (onder ruwweg 7 °dH, of 125 ppm): de eigen herinnering van de machine volstaat, in de praktijk elke 3 tot 6 maanden.</li>
+<li><strong>Matig hard</strong> (7 tot 14 °dH): elke 2 tot 3 maanden.</li>
+<li><strong>Hard</strong> (boven 14 °dH): ongeveer maandelijks, en eerder als de stroom traag wordt of de pomp lawaai maakt.</li>
+</ul>
+<p>Een pak hardheidsteststrookjes kost €5 tot €10, en uw waterleidingbedrijf publiceert het cijfer voor uw regio. De late signalen zijn over alle merken hetzelfde: trage, dunne stralen, een luide pomp, koelere koffie — en uiteindelijk de codes hierboven. Houd het schema aan en de meeste van die codes gebeuren simpelweg niet; een fles van €10 is de goedkoopste reparatie die deze site ooit zal aanraden.</p>
+<h3>De Nederlandse waterhardheid in het kort</h3>
+<p>Nederland heeft over het algemeen relatief zacht kraanwater, maar de regionale verschillen zijn groot: in het westen van het land is het water vaak zacht, terwijl het zuiden en oosten — delen van Limburg en Noord-Brabant — aanzienlijk harder water uit de kraan krijgen. Uw waterbedrijf publiceert de hardheid per woonplaats op zijn website, en met die uitkomst plaatst u uzelf in één van de bands hierboven. Woont u in een hardwatergebied, zet de ontkalkbeurten dan vast in de kalender in plaats van op het lampje te wachten.</p>
+</main>
+<footer>Reparatiehandleidingen en foutcode-uitleg van codefixcoffee.com.</footer>
+</body></html>
